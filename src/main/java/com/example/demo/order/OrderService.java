@@ -1,7 +1,5 @@
 package com.example.demo.order;
 
-import com.example.demo.Order;
-import com.example.demo.OrderRepository;
 import com.example.demo.OrderRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

@@ -1,9 +1,11 @@
 package com.example.demo.order;
 
 
+import com.example.demo.OracleDBConfig;
 import com.example.demo.OrderRequest;
 import com.example.demo.OrderResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
@@ -13,11 +15,17 @@ import java.util.*;
 @RestController
 @RequestMapping("/order-new")
 public class NewOrderController {
-    @Autowired
+
     private OrderService orderService;
+    @Autowired
+    private OracleDBConfig oracleDBConfig;
+    public NewOrderController(OrderService orderService){
+        this.orderService  = orderService;
+    }
 
     @GetMapping("/all")
     public List<OrderRequest> getAllOrder(){
+        System.out.println("oracleDBConfig "+oracleDBConfig);
         return  orderService.getAll();
     }
 
